@@ -9,9 +9,14 @@ const task = [
         descripcion: "walk the dog"
     },
 ]
-app.get("/clientes/:id",(res,req)=>
+app.get("user/bookings",(res,req)=>
 {
-    const clientid = req.params.id;
+    res.send("new booking");
+})
+
+app.get("user/reservations",(res,req)=>
+{
+    res.send("new reservation");
 })
 
 app.listen(port,()=>
