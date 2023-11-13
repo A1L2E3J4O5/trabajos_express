@@ -9,10 +9,9 @@ const task = [
         descripcion: "walk the dog"
     },
 ]
-
-app.get('/task',(req,res)=>
+app.get("/clientes/:id",(res,req)=>
 {
-    res.json(task);
+    const clientid = req.params.id;
 })
 
 app.listen(port,()=>
