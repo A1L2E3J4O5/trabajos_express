@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const clients = require('./router.js')
+
+app.use('/clients', clients)
 
 const task = [
     {
@@ -9,10 +12,17 @@ const task = [
         descripcion: "walk the dog"
     },
 ]
-app.get("/clientes/:id",(res,req)=>
+app.get("user/bookings",(res,req)=>
 {
-    const clientid = req.params.id;
+    res.send("new booking");
 })
+
+app.get("user/reservations",(res,req)=>
+{
+    res.send("new reservation");
+})
+
+
 
 app.listen(port,()=>
 {
