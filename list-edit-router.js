@@ -1,6 +1,15 @@
 const express = require('express');
 const listEditRouter = express.Router();
 
+listEditRouter.use((req,res,next)=>
+{
+    if((req.method === 'POST' || req.method === 'PUT') && !req.body)
+        {
+            return res.status(400).json({error: "cuerpo de la solicitud vacio"});
+        }
+    next();
+})
+
 listEditRouter.post('/create',(req,res)=>
 {
     res.send("creando tarea")
